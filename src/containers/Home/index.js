@@ -10,13 +10,15 @@ import {bindActionCreators} from 'redux'
 @connect(state=>({
 }),action)
 export default class Home extends Component{
+    componentWillMount(){
+        this.props.getSlider();
+    }
     choose(val){ //homeHeader点击后的城市
         console.log(val); //想改变redux中的值 就要发布action
         this.props.setCurrentLesson(val);
     }
     render(){
         //当我们直接调用属性中的setCurrentLesson方法 会自动dispatch
-
         return (
             <div>
                 {/*子组件和父组件通信，父组件传递回调函数给子组件 子组件触发这个函数*/}
