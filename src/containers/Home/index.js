@@ -3,11 +3,13 @@ import HomeHeader from "../../components/HomeHeader/index";
 import {connect} from 'react-redux';//组件链接redux
 import * as action from '../../redux/actions/home';
 import {bindActionCreators} from 'redux'
+import Slider from "../../components/Slider/index";
 //{setCurrentLesson:fn}
 /*@connect(state=>({}),dispatch=>{
     return bindActionCreators(action,dispatch)
 })*/
 @connect(state=>({
+    sliders:state.home.sliders //将轮播图中的数据 映射到sliders身上
 }),action)
 export default class Home extends Component{
     componentWillMount(){
@@ -20,9 +22,12 @@ export default class Home extends Component{
     render(){
         //当我们直接调用属性中的setCurrentLesson方法 会自动dispatch
         return (
-            <div>
+            <div style={{height:'100%'}}>
                 {/*子组件和父组件通信，父组件传递回调函数给子组件 子组件触发这个函数*/}
                 <HomeHeader choose={this.choose.bind(this)}/>
+                <div className="page-wrap">
+                    <Slider/>
+                </div>
             </div>
         )
     }
