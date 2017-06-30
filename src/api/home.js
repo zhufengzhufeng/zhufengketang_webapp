@@ -5,7 +5,9 @@ let url = 'http://localhost:4000';
 export function getSliders() {
     return get(url+'/api/getSliders');
 }
-
+export function getLessons(type,limit,offset) {
+    return get(url+`/api/getLessons/${type}/${limit}/${offset}`);
+}
 /*fetch('url',{
     method:'get',
     headers:{

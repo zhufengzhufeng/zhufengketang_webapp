@@ -1,7 +1,7 @@
 //首页的动作
 //放一些 action-creator 函数返回action
 import * as Types from '../action-types';
-import {getSliders} from '../../api/home'
+import {getSliders,getLessons} from '../../api/home'
 export const setCurrentLesson = (lesson) => {
     return {
         type:Types.SET_CURRENT_LESSON,
@@ -18,4 +18,26 @@ export const getSlider = () => (dispath,getState)=>{
             sliders
         })
     })
+};
+//获取课程
+export const getLesson = () => (dispatch,getState) => {
+    let {currentLesson,
+        lessons:{
+            hasMore,
+            offset,
+            limit
+        }
+    } = getState().home;//state.home.currentLesson
+    //要调用ajax请求，请求时需要 limit offset currentLesson
+    if(!hasMore){
+        return;
+    }
+    getLessons(currentLesson,limit,offset).then(data=>{
+       dispatch({
+           type:Types.GET_LESSON,
+           ...data
+          /* hasMore:data.hasMore,
+           lessons:data.lessons*/
+       })
+    });
 };
