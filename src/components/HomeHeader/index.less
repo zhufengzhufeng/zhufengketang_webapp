@@ -2,6 +2,8 @@
   height: 56px;
   background: #2a2a2a;
   display: flex;
+  position: fixed;
+  width: 100%;
   .header-bar{
     width: 100%;
     justify-content: space-between;
@@ -17,4 +19,39 @@
       margin-right: 15px;
     }
   }
+  .header-menu{
+    position: absolute;
+    top:56px; ;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    ul{
+      background: #2a2a2a;
+    }
+    li{
+      height: 45px;
+      line-height: 45px;
+      margin: 0 20px;
+      border-top: 1px solid #464646;
+      color: #fff;
+      text-align: center;
+    }
+  }
+}
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }
