@@ -4,12 +4,14 @@ import {connect} from 'react-redux';//组件链接redux
 import * as action from '../../redux/actions/home';
 import {bindActionCreators} from 'redux'
 import Slider from "../../components/Slider/index";
+import LessonList from "../../components/LessonList/index";
 //{setCurrentLesson:fn}
 /*@connect(state=>({}),dispatch=>{
     return bindActionCreators(action,dispatch)
 })*/
 @connect(state=>({
-    sliders:state.home.sliders //将轮播图中的数据 映射到sliders身上
+    sliders:state.home.sliders,//将轮播图中的数据 映射到sliders身上
+    lessons:state.home.lessons
 }),action)
 export default class Home extends Component{
     componentWillMount(){
@@ -31,7 +33,9 @@ export default class Home extends Component{
                 <HomeHeader choose={this.choose.bind(this)}/>
                 <div className="page-wrap">
                     <Slider sliders={this.props.sliders}/>
+                    <LessonList lists={this.props.lessons.list}/>
                     <button onClick={this.loadMore.bind(this)}>获取更多</button>
+
                 </div>
             </div>
         )
