@@ -21,10 +21,19 @@ export function home(state=initState,action) {
                 ...state.lessons,
                 hasMore:action.hasMore, //更改redux中的状态
                 list:[...state.lessons.list,...action.lessons],
-                loading:false
+                loading:false,
+                offset:state.lessons.offset + action.lessons.length
+            }};
+        case Types.CHANGE_LOADING_STATUS:
+            return {...state,lessons:{
+                ...state.lessons,
+                loading:action.loading
             }}
     }
     return initState;
 }
 
 //sliders 要通过ajax请求数据，通过action请求数据，请求成功 派发到对应的reducers
+
+//1次 后台先要拿到 前十条
+// 在上次的10条之后在获取十条

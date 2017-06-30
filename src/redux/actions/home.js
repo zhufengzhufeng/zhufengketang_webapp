@@ -32,6 +32,10 @@ export const getLesson = () => (dispatch,getState) => {
     if(!hasMore){
         return;
     }
+    dispatch({
+        type:Types.CHANGE_LOADING_STATUS,
+        loading:true
+    });
     getLessons(currentLesson,limit,offset).then(data=>{
        dispatch({
            type:Types.GET_LESSON,

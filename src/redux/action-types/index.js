@@ -8,3 +8,6 @@ export const GET_SLIDERS = 'GET_SLIDERS';
 
 // 获取课程
 export const GET_LESSON = 'GET_LESSON';
+
+// 更改loading态
+export const CHANGE_LOADING_STATUS = 'CHANGE_LOADING_STATUS';
