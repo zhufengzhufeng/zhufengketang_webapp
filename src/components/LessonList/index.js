@@ -9,7 +9,7 @@ export default class LessonList extends Component{
                     this.props.lists.map((item,index)=>{
                         let {url,lesson,price} = item;
                         return (
-                            <li>
+                            <li key={index}>
                                 <img src={url} alt=""/>
                                 <p>{lesson}</p>
                                 <span>{price}</span>
@@ -21,3 +21,5 @@ export default class LessonList extends Component{
         )
     }
 }
+
+//scrollTop + offsetHeight+20 > scrollHeight  加载更多
