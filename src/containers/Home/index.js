@@ -26,7 +26,7 @@ export default class Home extends Component{
                 {/*子组件和父组件通信，父组件传递回调函数给子组件 子组件触发这个函数*/}
                 <HomeHeader choose={this.choose.bind(this)}/>
                 <div className="page-wrap">
-                    <Slider/>
+                    <Slider sliders={this.props.sliders}/>
                 </div>
             </div>
         )
