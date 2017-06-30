@@ -17,7 +17,7 @@ export function home(state=initState,action) {
         case Types.GET_SLIDERS:
             return {...state,sliders:action.sliders};
         case Types.GET_LESSON:
-            return {...state,lesson:{
+            return {...state,lessons:{
                 ...state.lessons,
                 hasMore:action.hasMore, //更改redux中的状态
                 list:[...state.lessons.list,...action.lessons],

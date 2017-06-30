@@ -14,10 +14,14 @@ import Slider from "../../components/Slider/index";
 export default class Home extends Component{
     componentWillMount(){
         this.props.getSlider();
+        this.props.getLesson();
     }
     choose(val){ //homeHeader点击后的城市
         console.log(val); //想改变redux中的值 就要发布action
         this.props.setCurrentLesson(val);
+    }
+    loadMore(){
+        this.props.getLesson();
     }
     render(){
         //当我们直接调用属性中的setCurrentLesson方法 会自动dispatch
@@ -27,6 +31,7 @@ export default class Home extends Component{
                 <HomeHeader choose={this.choose.bind(this)}/>
                 <div className="page-wrap">
                     <Slider sliders={this.props.sliders}/>
+                    <button onClick={this.loadMore.bind(this)}>获取更多</button>
                 </div>
             </div>
         )
