@@ -15,8 +15,13 @@ import './common/css/index.less';
 import {Provider} from 'react-redux';
 import store from  './redux/store';
 window._store = store; //将store挂在window上 store里有方法可以获取状态 getState()
+
+//使用react-router-redux
+import {ConnectedRouter} from 'react-router-redux';
+import createHistory from 'history/createHashHistory';
+let history = createHistory();
 render(<Provider store={store}>
-    <HashRouter>
+    <ConnectedRouter history={history}>
         <App>
             <Switch>
                 <Route path={'/home'} component={Home}/>
@@ -25,5 +30,5 @@ render(<Provider store={store}>
                 <Redirect to="/home"/>
             </Switch>
         </App>
-    </HashRouter>
+    </ConnectedRouter>
 </Provider>,document.getElementById('app'));
