@@ -32,7 +32,7 @@ export default class HomeHeader extends Component{
                         transitionName="example"
                         transitionEnterTimeout={500}
                         transitionLeaveTimeout={300}>
-                        {isShow?<ul>
+                        {isShow?<ul onClick={this.choose.bind(this)}>
                             <li>Node课程培训</li>
                             <li>HTML课程培训</li>
                             <li>视频课程</li>
@@ -43,5 +43,11 @@ export default class HomeHeader extends Component{
 
             </div>
         )
+    }
+    choose(e){
+        //调用父组件的传递的函数
+        this.props.choose(e.target.innerText);
+        //关闭下拉菜单
+        this.changeShow();
     }
 }

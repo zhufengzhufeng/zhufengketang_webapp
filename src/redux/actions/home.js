@@ -4,6 +4,6 @@ import * as Types from '../action-types'
 export const setCurrentLesson = (lesson) => {
     return {
         type:Types.SET_CURRENT_LESSON,
-        lesson:'aa'
+        lesson
     }
 };

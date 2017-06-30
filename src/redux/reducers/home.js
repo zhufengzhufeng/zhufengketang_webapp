@@ -5,7 +5,7 @@ let initState = {
 export function home(state=initState,action) {
     switch (action.type){
         case Types.SET_CURRENT_LESSON:
-            return {...state,...{currentLesson:action.lesson}}
+            return {...state,currentLesson:action.lesson}
     }
     return initState;
 }

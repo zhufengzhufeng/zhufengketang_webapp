@@ -2,7 +2,13 @@
 import React,{Component} from 'react';
 import Tab from "../components/Tab/index";
 import {connect} from 'react-redux';
-class App extends Component{
+//可以用修饰符的方式 链接redux
+@connect(
+    state=>({
+        router:state.router
+    })
+)
+export default class App extends Component{
     render(){
         return (
             <div className="wrap">
@@ -12,8 +18,3 @@ class App extends Component{
         )
     }
 }
-export default connect(
-    state=>({
-        router:state.router
-    })
-)(App);
